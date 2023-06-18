@@ -1,19 +1,22 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Amazon検索フィルタくん",
   "version": "0.9.1",
   "description": "amazon.co.jpのURL末尾に &emi=AN1VRQENFRJN5 を付与する",
   "background": {
-    "scripts": [
-      "js/background.js"
-    ]
+    "service_worker": "js/background.js"
   },
-  "page_action": {
-    "default_icon": "icons/icon128.png",
+  "action": {
+    "default_icon": {
+      "128": "icons/icon128.png"
+    },
     "default_title": "Amazon検索フィルタくん"
   },
-  "permissions":[
-    "https://www.amazon.co.jp/*",
-    "tabs"
+  "host_permissions": [
+    "https://www.amazon.co.jp/*"
+  ],
+  "permissions": [
+    "tabs",
+    "activeTab"
   ]
 }

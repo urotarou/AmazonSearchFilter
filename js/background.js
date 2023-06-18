@@ -1,23 +1,25 @@
 var targetTabId
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (tab.url.includes("https://www.amazon.co.jp/")) {
-        console.log("Hello Amazon!!");
+    if (changeInfo.status !== "complete") return
+
+    if (tab.url.startsWith("https://www.amazon.co.jp/")) {
+        console.log("Hello Amazon!!")
+
         targetTabId = tabId
-        chrome.pageAction.show(tabId);
+        chrome.action.enable(tabId)
     }
-});
+})
 
-chrome.pageAction.onClicked.addListener(() => {
-    chrome.tabs.get(targetTabId, (tab) => {
-        if(tab.url.includes("&emi=AN1VRQENFRJN5")) return
+chrome.action.onClicked.addListener(() => {
+    chrome.tabs.get(parseInt(targetTabId), (tab) => {
+        if(tab.url.includes("AN1VRQENFRJN5")) return
 
-        var afterUrl = tab.url + "&emi=AN1VRQENFRJN5"
+        var newUrl = tab.url + "&emi=AN1VRQENFRJN5"
 
-        console.log("before: " + tab.url);
-        console.log("after : " + afterUrl);
-        chrome.tabs.update({
-                url: afterUrl
-            });
-        });
-});
+        console.log("old: " + tab.url)
+        console.log("new : " + newUrl)
+
+        chrome.tabs.update({"url": newUrl})
+    })
+})
