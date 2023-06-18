@@ -12,6 +12,7 @@
     },
     "default_title": "Amazon検索フィルタくん"
   },
+  "homepage_url": "https://github.com/urotarou/AmazonSearchFilter",
   "host_permissions": [
     "https://www.amazon.co.jp/*"
   ],
