@@ -1,17 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Amazon検索フィルタくん",
-  "version": "0.9.1",
-  "description": "amazon.co.jpのURL末尾に &emi=AN1VRQENFRJN5 を付与する",
-  "background": {
-    "service_worker": "js/background.js"
-  },
-  "action": {
-    "default_icon": {
-      "128": "icons/icon128.png"
-    },
-    "default_title": "Amazon検索フィルタくん"
-  },
+  "version": "0.9.2",
+  "description": "amazon.co.jpのURL末尾に &rh=p_6%3AAN1VRQENFRJN5 を付与する",
   "homepage_url": "https://github.com/urotarou/AmazonSearchFilter",
   "host_permissions": [
     "https://www.amazon.co.jp/*"
@@ -19,5 +10,14 @@
   "permissions": [
     "tabs",
     "activeTab"
-  ]
+  ],
+  "action": {
+    "default_icon": {
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Amazon検索フィルタくん"
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  }
 }
